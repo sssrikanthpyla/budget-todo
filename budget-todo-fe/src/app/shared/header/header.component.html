@@ -1,0 +1,14 @@
+<mat-toolbar class="mattoolbar">
+    <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Budget and Todo</span>
+    <span class="seperator"></span>
+    <button mat-button>Home</button>
+    <button mat-button [matMenuTriggerFor]="accounts">Accounts</button>
+    <mat-menu #accounts="matMenu">
+        <button mat-menu-item>Saving accounts</button>
+        <button mat-menu-item>Credit cards</button>
+    </mat-menu>
+    <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+</mat-toolbar>
