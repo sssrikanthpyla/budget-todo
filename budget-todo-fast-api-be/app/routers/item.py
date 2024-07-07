@@ -12,6 +12,11 @@ router = APIRouter()
 async def create_item(item: item_schema.ItemCreate, db: Session = Depends(get_db)):
     return item_crud.create_item(db=db, item=item)
 
+@router.get("/items/", response_model=list[item_schema.Item])
+async def read_all_items(db: Session = Depends(get_db)):
+    return item_crud.get_all_items(db=db)
+
+
 @router.get("/items/{item_id}", response_model=item_schema.Item)
 async def read_item(item_id: int, db: Session = Depends(get_db)):
     db_item = item_crud.get_item(db=db, item_id=item_id)
