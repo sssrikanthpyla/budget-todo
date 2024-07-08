@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-# from app import crud, models, schemas
 from app.services import item_crud
 from app.models import item_model
 from app.schemas import item_schema
