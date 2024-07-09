@@ -2,8 +2,8 @@ from sqlalchemy.orm import Session
 from app.models.card_model import Card
 from app.schemas.card_schema import CardCreate, CardUpdate
 
-def get_card_details(db: Session, card_id: int):
-    return db.query(Card).filter(Card.id == card_id).first()
+def get_card_details(db: Session, id: int):
+    return db.query(Card).filter(Card.id == id).first()
 
 def get_all_card_details(db: Session):
     return db.query(Card).all()
