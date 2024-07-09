@@ -13,7 +13,8 @@
 DOCKER: 
 - Run docker composer:
     Note: Start the docker desktop before running the below command and stop mysql server manually if already install MySQL service in your local.
-    - docker-compose up -d
-        - '-d' is for ditached mode
+    - docker-compose up --build 
+    (or) 
+    - sudo docker-compose up --build
 - To run mysql server if you run docker 
     - docker exec -it <container_name_or_id> mysql -u <user> -p

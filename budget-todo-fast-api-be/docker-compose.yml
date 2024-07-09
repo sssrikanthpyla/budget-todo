@@ -13,7 +13,22 @@ services:
       MYSQL_PASSWORD: myuser
     volumes:
       - mysql-data:/var/lib/mysql
-    # user: "1000:1000"  # Run as non-root user to avoid ASL logging issue
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  budget_todo_be:
+    build: .
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
 
 volumes:
   mysql-data:
