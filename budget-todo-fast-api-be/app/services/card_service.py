@@ -12,9 +12,7 @@ def create_card(db: Session, card: CardCreate):
     db_card = Card(
         card_number=card.card_number,
         name_of_card=card.name_of_card,
-        expire_date=card.expire_date,
-        valid_through=card.valid_through,
-        payment_generation_date=card.payment_generation_date,
+        bill_generation_date=card.bill_generation_date,
         payment_due_date=card.payment_due_date,
         payment_completed_date=card.payment_completed_date,
         is_payment_completed=card.is_payment_completed,
@@ -28,9 +26,7 @@ def create_card(db: Session, card: CardCreate):
 def update_card(db: Session, db_card: Card, card: CardUpdate):
     db_card.card_number=card.card_number,
     db_card.name_of_card=card.name_of_card,
-    db_card.expire_date=card.expire_date,
-    db_card.valid_through=card.valid_through,
-    db_card.payment_generation_date=card.payment_generation_date,
+    db_card.bill_generation_date=card.bill_generation_date,
     db_card.payment_due_date=card.payment_due_date,
     db_card.payment_completed_date=card.payment_completed_date,
     db_card.is_payment_completed=card.is_payment_completed,

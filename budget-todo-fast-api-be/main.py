@@ -1,7 +1,6 @@
 
 import uvicorn
 from fastapi import FastAPI
-from app.routers.item import router as item_router
 from app.routers.card import router as card_router
 from app.database.database_configure import engine, Base
 
@@ -12,7 +11,6 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # Include the routers
-app.include_router(item_router)
 app.include_router(card_router)
 
 @app.get("/")
