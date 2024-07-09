@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: myuser
     volumes:
       - mysql-data:/var/lib/mysql
-    user: "1000:1000"  # Run as non-root user to avoid ASL logging issue
+    # user: "1000:1000"  # Run as non-root user to avoid ASL logging issue
 
 volumes:
   mysql-data:
