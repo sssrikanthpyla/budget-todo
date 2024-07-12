@@ -1,5 +1,5 @@
 FROM quay.io/keycloak/keycloak:23.0.1 as builder
-COPY ./themes/cims/ /opt/keycloak/themes/cims/
+COPY ./themes/budget-todo/ /opt/keycloak/themes/budget-todo/
 COPY ./provider/ /opt/keycloak/providers/
 
 FROM quay.io/keycloak/keycloak:23.0.1

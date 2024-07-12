@@ -13,7 +13,7 @@
         </#list>
     </#if>
     <title><#nested "title"></title>
-    <link rel="shortcut icon" href="${url.resourcesPath}/img/favicon.ic.png" />
+    <link rel="shortcut icon" href="${url.resourcesPath}/img/budget-todo.jpg" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
@@ -33,17 +33,17 @@
 <body class="${properties.kcBodyClass!} template">
 <div class="main-container">
     <div class="login-img" >
-    <img src="${url.resourcesPath}/img/loginimage3.png" alt="image of Shape"></img>
+    <img src="${url.resourcesPath}/img/budget-todo.jpg" alt="image of Shape"></img>
         <div class="image-content">
-        <div class="image-title-1">Welcome to CARP</div>
+        <div class="image-title-1">Welcome to Budget Todo</div>
         <div class="image-border"></div>
-        <div class="image-title-2">CIMS Assure RegTech Platform</div>
-        <div class="image-title-3">"Where Compliance Meets Efficiency"</div>
+        <div class="image-title-2">Budget Todo Application</div>
+        <div class="image-title-3">""</div>
         </div>
     </div>
     <div id="kc-container" class="${properties.kcContainerClass!} form-container">
-         <div class=armedu-logo>
-       <img src="${url.resourcesPath}/img/armedu-logo.png" alt="image of Shape"></img>
+         <div class=budget-todo-logo>
+       <img src="${url.resourcesPath}/img/budget-todo.jpg" alt="image of Shape"></img>
     </div>
         <div id="kc-container-wrapper" class="${properties.kcContainerWrapperClass!}">
             <div id="kc-content" class="${properties.kcContentClass!}">

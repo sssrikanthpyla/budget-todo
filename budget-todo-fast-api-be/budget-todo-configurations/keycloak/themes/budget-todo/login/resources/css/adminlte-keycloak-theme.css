@@ -26,11 +26,11 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.armedu-logo {
+.budget-todo-logo {
   padding: 25px 0 0px 50px;
   width: 100%;
   img {
-    width: 130px;
+    width: 70px;
   }
 }
 .image-content {
