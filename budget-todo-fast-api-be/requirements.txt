@@ -5,3 +5,4 @@ sqlalchemy
 databases
 pymysql
 mysql-connector-python
+python-keycloak

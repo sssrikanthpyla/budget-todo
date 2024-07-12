@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean
-from app.database.database_configure import Base
+from app.config.database_configure import Base
 
 class Card(Base):
     __tablename__ = "credit_card_details"

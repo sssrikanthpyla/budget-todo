@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from app.services import card_service
 from app.models import card_model
 from app.schemas import card_schema
-from app.database.database_configure import get_db
+from app.config.database_configure import get_db
 
-router = APIRouter()
+router = APIRouter(prefix="/creditcards")
 
 @router.post("/cards", response_model=card_schema.Card)
 async def save_cards(card: card_schema.CardCreate, db: Session=Depends(get_db)):
