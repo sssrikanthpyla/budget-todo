@@ -12,4 +12,15 @@ import { HeaderComponent } from './shared/header/header.component';
 })
 export class AppComponent {
   title = 'budget-todo-fe';
+
+  isUserLoggedIn: boolean = false;
+
+  checkLoginLogout(event: any) {
+    if(event === 'LOGEDIN') {
+      this.isUserLoggedIn = true;
+    }
+    if(event === 'LOGEDOUT') {
+      this.isUserLoggedIn = false;
+    }
+  }
 }
