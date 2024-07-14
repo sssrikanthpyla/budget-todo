@@ -42,7 +42,7 @@ services:
     environment:
       MYSQL_ROOT_HOST: localhost
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: budget_todo
       MYSQL_USER: myuser
       MYSQL_PASSWORD: rootpassword
     volumes:

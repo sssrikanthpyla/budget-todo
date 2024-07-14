@@ -2,8 +2,9 @@ from pydantic import BaseModel
 from datetime import date
 
 class CardBase(BaseModel):
-    card_number: int
+    card_number: str
     name_of_card: str
+    card_title: str
     bill_generation_date: date
     payment_due_date: date
     payment_completed_date: date
