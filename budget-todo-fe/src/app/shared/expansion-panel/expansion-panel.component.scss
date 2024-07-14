@@ -1,0 +1,10 @@
+:host {
+
+    mat-expansion-panel {
+        background-color: white;
+
+        mat-panel-title, mat-panel-description, p {
+            color: #000;
+        }
+    }
+}

@@ -1,5 +1,10 @@
-<app-header [isUserLoggedIn]="isUserLoggedIn" (loginLogout)="checkLoginLogout($event)"></app-header>
-<div class="container">
-    <router-outlet />
+<div class="home-container">
+    <app-header [isUserLoggedIn]="isUserLoggedIn" [userDetails]="userDetails" (loginLogout)="checkLoginLogout($event)"></app-header>
+    <div class="router-holder">
+        <div class="container">
+            <router-outlet />
+        </div>
+    </div>
 </div>
+
 

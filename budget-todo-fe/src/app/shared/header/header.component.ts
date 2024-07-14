@@ -16,6 +16,7 @@ export class HeaderComponent {
   accounts!: MatMenuPanel<any>;
 
   @Input() isUserLoggedIn!: boolean;
+  @Input() userDetails: any;
   @Output() loginLogout = new EventEmitter<any>();
 
   login() {
@@ -25,4 +26,5 @@ export class HeaderComponent {
   signOut() {
     this.loginLogout.emit('LOGEDOUT');
   }
+  
 }
