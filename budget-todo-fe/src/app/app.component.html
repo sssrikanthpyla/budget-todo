@@ -1,10 +1,17 @@
 <div class="home-container">
-    <app-header [isUserLoggedIn]="isUserLoggedIn" [userDetails]="userDetails" (loginLogout)="checkLoginLogout($event)"></app-header>
-    <div class="router-holder">
-        <div class="container">
-            <router-outlet />
+    <app-header></app-header>
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <div class="router-holder">
+            <div class="container">
+                <router-outlet />
+            </div>
         </div>
-    </div>
+    </ng-container>
+    <ng-template #loggedOut>
+        <div class="container">
+            <app-dashboard></app-dashboard>
+        </div>
+    </ng-template>
 </div>
 
 

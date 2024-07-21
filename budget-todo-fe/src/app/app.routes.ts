@@ -11,10 +11,10 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        loadChildren : () => import('./home/home.module').then(m => HomeModule), canActivate: [AuthGuard]
+        loadChildren : () => import('./home/home.module').then(m => HomeModule)//, canActivate: [AuthGuard]
     },
     {
         path: 'creditcards',
-        loadChildren : () => import('./creditcards/creditcards.module').then(m => CreditcardsModule), canActivate: [AuthGuard]
+        loadChildren : () => import('./creditcards/creditcards.module').then(m => CreditcardsModule)//, canActivate: [AuthGuard]
     }
 ];

@@ -21,7 +21,7 @@
         <button class="px-2 text-white" mat-icon-button>
             <mat-icon>menu</mat-icon>
         </button>
-
+        <ng-container *ngIf="authService.isAuthenticated$ | async; else budget">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><button class="px-2 text-white" mat-button [routerLink]="'/'">Home</button></li>
         <li>
@@ -35,29 +35,31 @@
             <button class="px-2 text-white" mat-button>ToDo</button>
         </li>
       </ul>
+    </ng-container>
+    <ng-template #budget>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><button class="px-2 text-white" mat-button [routerLink]="'/'">Budget TODO</button></li>
+      </ul>
+    </ng-template>
 
-      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-      </form> -->
-
-      <!-- @if (!isUserLoggedIn) {
-        <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2" (click)="login()">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+      <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
+        <div class="dropdown text-end ms-2" >
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="./../../../assets/images/srigamani_taj.jpeg" alt="userName" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="authService.logout({ logoutParams: { returnTo: document.location.origin } })">Sign out</a></li>
+          </ul>
+        </div>
+        </ng-container>
+        <ng-template #loggedOut>
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2" (click)="authService.loginWithRedirect()">Login</button>
           </div>
-      } -->
-      {{userDetails.userName}}
-        <div class="dropdown text-end ms-2">
-            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="./../../../assets/images/srigamani_taj.jpeg" alt={{userDetails.userName}} width="32" height="32" class="rounded-circle">
-            </a>
-            <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" (click)="signOut()">Sign out</a></li>
-            </ul>
-          </div>
+        </ng-template>
     </div>
   </div>
 </header>
