@@ -6,3 +6,15 @@ databases
 pymysql
 mysql-connector-python
 python-keycloak
+pydantic-settings
+python-dotenv
+asgiref
+cffi
+click
+cryptography
+h11
+pycparser
+pydantic
+PyJWT
+starlette
+typing-extensions

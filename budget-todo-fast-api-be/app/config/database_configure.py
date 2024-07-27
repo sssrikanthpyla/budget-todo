@@ -7,11 +7,11 @@ import databases
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./budget_todo.db"
 
 # Localhost Mac
-# SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost:3306/budget_todo"
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost:3306/budget_todo"
 # SQLALCHEMY_DATABASE_URL = "mysql+mysqldb://myuser:myuser@127.0.0.1:3306/budget_todo"
 
 # SQL in docker
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@mysql/budget_todo"
+# SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@mysql/budget_todo"
 
 # databases query builder
 # database = databases.Database(SQLALCHEMY_DATABASE_URL)

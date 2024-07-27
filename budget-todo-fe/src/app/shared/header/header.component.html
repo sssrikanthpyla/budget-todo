@@ -45,7 +45,7 @@
       <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
         <div class="dropdown text-end ms-2" >
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="./../../../assets/images/srigamani_taj.jpeg" alt="userName" width="32" height="32" class="rounded-circle">
+            <img src="{{(authService.user$ | async)?.picture}}" alt="userName" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small">
             <li><a class="dropdown-item" href="#">Settings</a></li>

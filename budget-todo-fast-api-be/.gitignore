@@ -6,3 +6,7 @@ venv/
 
 # Ignore the test.db file
 test.db
+
+# Ignore .env and .config
+.env
+.config

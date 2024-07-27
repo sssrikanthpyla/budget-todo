@@ -20,13 +20,7 @@ export const appConfig: ApplicationConfig = {
     //   multi: true,
     //   deps: [KeycloakService]
     // }, 
-    provideAuth0({
-      domain: 'dev-qa7eq8kdkth5sh2g.us.auth0.com',
-      clientId: 'aIecwg5MbrpADVvDhsL2aXLtC4Br5JsC',
-      authorizationParams: {
-        redirect_uri: window.location.origin
-      }
-    }),
+    provideAuth0(),
     provideAnimationsAsync(), 
     provideAnimationsAsync()
   ]
