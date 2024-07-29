@@ -9,7 +9,7 @@ router = APIRouter(prefix="/user")
 
 token_auth_scheme = HTTPBearer()
 
-@router.delete("/delete_account")
+@router.delete("/delete_account", description="Delete account permanently")
 async def delete_card(response: Response, db: Session = Depends(get_db), token: str = Depends(token_auth_scheme)):
     result = VerifyToken(token.credentials).get_current_user(db=db)
     if result['status'] == 'Failed':
