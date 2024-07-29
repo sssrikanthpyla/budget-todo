@@ -2,13 +2,13 @@ from sqlalchemy.orm import Session
 from app.models.card_model import Card
 from app.schemas.card_schema import CardCreate, CardUpdate
 
-def get_card_details(db: Session, id: int):
-    return db.query(Card).filter(Card.id == id).first()
+def get_card_details(db: Session, id: int, user_id: int):
+    return db.query(Card).filter(Card.id == id, Card.user_id == user_id).first()
 
-def get_all_card_details(db: Session):
-    return db.query(Card).all()
+def get_all_card_details(db: Session, user_id: int):
+    return db.query(Card).filter(Card.user_id == user_id).all()
 
-def create_card(db: Session, card: CardCreate):
+def create_card(db: Session, card: CardCreate, user_id):
     db_card = Card(
         card_number=card.card_number,
         name_of_card=card.name_of_card,
@@ -17,7 +17,8 @@ def create_card(db: Session, card: CardCreate):
         payment_due_date=card.payment_due_date,
         payment_completed_date=card.payment_completed_date,
         is_payment_completed=card.is_payment_completed,
-        is_bill_generated=card.is_bill_generated
+        is_bill_generated=card.is_bill_generated,
+        user_id=user_id
     )
     db.add(db_card)
     db.commit()

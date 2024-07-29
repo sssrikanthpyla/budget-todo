@@ -1,10 +1,10 @@
 
 import uvicorn
-from fastapi import Depends, FastAPI, Response, status
+from fastapi import FastAPI
 from fastapi.security import HTTPBearer
 from app.routers.card import router as card_router
+from app.routers.user import router as user_router
 from app.config.database_configure import engine, Base
-from app.utils.utils import VerifyToken
 from fastapi.middleware.cors import CORSMiddleware
 
 # Create the database tables
@@ -32,6 +32,7 @@ app.add_middleware(
 
 # Include the routers
 app.include_router(card_router)
+app.include_router(user_router)
 
 @app.get("/")
 async def home():

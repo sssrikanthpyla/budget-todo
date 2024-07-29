@@ -6,16 +6,27 @@ import { from, switchMap } from 'rxjs';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
 
-  return from(authService.getAccessTokenSilently()).pipe(
-    switchMap((token: string) => {
+  // return from(authService.getAccessTokenSilently()).pipe(
+  //   switchMap((token: string) => {
+  //     const newReq = req.clone({
+  //       setHeaders: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     });
+  //     console.log('Inside Interceptor');
+  //     console.log(token);
+  //     return next(newReq);
+  //   })
+  // );
+
+  return from(authService.idTokenClaims$).pipe(
+    switchMap((res: any) => {
       const newReq = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${res.__raw}`
         }
       });
-      console.log('Inside Interceptor');
-      console.log(token);
-      return next(newReq);
+      return next(newReq)
     })
-  );
+  )
 };

@@ -1,7 +1,7 @@
-import os
 import jwt
 from app.config.auth_config import authSettings
-# from configparser import ConfigParser
+from sqlalchemy.orm import Session
+from app.services import user_servce
 
 
 def set_up():
@@ -29,9 +29,20 @@ class VerifyToken():
         # the keys available
         jwks_url = f'https://{self.config["DOMAIN"]}/.well-known/jwks.json'
         self.jwks_client = jwt.PyJWKClient(jwks_url)
+    
+    def get_current_user(self, db: Session):
+        payload = self.verify()
+        if payload.get("status"):
+            return {'status': 'Failed', 'data': payload}
+        else:
+            user_email = payload.get('email')
+            user = user_servce.get_user(db=db, email=user_email)
+            if user is None:
+                created_user = user_servce.create_user_with_payload(db=db, user=payload)
+                return {'status': 'Success', 'user': created_user}
+            return {'status': 'Success', 'user': user}
 
     def verify(self):
-        # This gets the 'kid' from the passed token
         try:
             self.signing_key = self.jwks_client.get_signing_key_from_jwt(
                 self.token

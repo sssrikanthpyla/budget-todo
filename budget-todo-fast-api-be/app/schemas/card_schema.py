@@ -12,7 +12,7 @@ class CardBase(BaseModel):
     is_bill_generated: bool
 
 class CardCreate(CardBase):
-    pass
+    user_id: int
 
 class CardUpdate(CardBase):
     pass
