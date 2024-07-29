@@ -41,4 +41,4 @@ def update_card(db: Session, db_card: Card, card: CardUpdate):
 def delete_card(db: Session, db_card: Card):
     db.delete(db_card)
     db.commit()
-    return {"message": "Card deleted successfully"}
+    return {"status": "Success", "message": "Card deleted successfully"}
