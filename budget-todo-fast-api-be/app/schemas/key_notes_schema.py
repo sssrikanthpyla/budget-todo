@@ -1,20 +1,20 @@
 from pydantic import BaseModel
 from datetime import date
 
-class TodoListBase(BaseModel):
+class KeynotesBase(BaseModel):
     name: str
     purpose: str
     purpose: str
     description: str
-    priority: str
+    star: str
 
-class TodoListCreate(TodoListBase):
+class KeynotesCreate(KeynotesBase):
     user_id: int
 
-class TodoListUpdate(TodoListBase):
+class KeynotesUpdate(KeynotesBase):
     pass
 
-class TodoList(TodoListBase):
+class Keynotes(KeynotesBase):
     id: int
     
     class Config:
