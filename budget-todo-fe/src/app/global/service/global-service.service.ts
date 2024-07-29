@@ -9,6 +9,6 @@ export class GlobalServiceService {
   constructor(private _http: HttpClient) { }
 
   getCardDetails() {
-    return this._http.get('http://127.0.0.1:8000/creditcards/cards');
+    return this._http.get('http://127.0.0.1:8000/creditcard/cards');
   }
 }

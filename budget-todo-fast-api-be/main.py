@@ -2,8 +2,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.security import HTTPBearer
-from app.routers import card 
-from app.routers import user
+from app.routers import card, user, todo_list
 from app.config.database_configure import engine, Base
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -33,6 +32,7 @@ app.add_middleware(
 # Include the routers
 app.include_router(card.router, tags=["Cards"])
 app.include_router(user.router, tags=["Users"])
+app.include_router(todo_list.router, tags=["TodoList"])
 
 @app.get("/")
 async def home():

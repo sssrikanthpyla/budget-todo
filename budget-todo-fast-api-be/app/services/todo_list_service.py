@@ -33,4 +33,4 @@ def update_todo_list(db: Session, db_todo_list: TodoList, todoList: TodoListUpda
 def delete_todo_list(db: Session, db_todo_list: TodoList):
     db.delete(db_todo_list)
     db.commit()
-    return {"status": "Success", "message": "Keynote deleted successfully"}
+    return {"status": "Success", "message": "Todo list deleted successfully"}
