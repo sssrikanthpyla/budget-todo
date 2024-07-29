@@ -5,7 +5,7 @@ from app.config.database_configure import Base
 class Keynotes(Base):
     __tablename__ = "key_notes"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(length=30), unique=True, nullable=False)
+    name = Column(String(length=30), nullable=False)
     purpose = Column(String(length=50), index=True)
     description = Column(String(length=200), index=True)
     star = Column(String(length=5))
