@@ -52,6 +52,22 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # volumes_from:
+    #   - postgres_backup
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   budget_todo_be:
     build: .
@@ -68,3 +84,5 @@ services:
 
 volumes:
   mysql-data:
+  postgres_data:
+  # postgres_backup:

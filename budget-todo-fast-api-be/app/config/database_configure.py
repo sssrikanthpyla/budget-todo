@@ -7,8 +7,11 @@ import databases
 # SQLALCHEMY_DATABASE_URL = "sqlite:///./budget_todo.db"
 
 # Localhost Mac
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost:3306/budget_todo"
+# SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@localhost:3306/budget_todo"
 # SQLALCHEMY_DATABASE_URL = "mysql+mysqldb://myuser:myuser@127.0.0.1:3306/budget_todo"
+
+# Postgres local
+SQLALCHEMY_DATABASE_URL="postgresql://postgres:mysecretpassword@localhost:5432/postgres"
 
 # SQL in docker
 # SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:rootpassword@mysql/budget_todo"
@@ -30,3 +33,17 @@ def get_db():
 
 # def create_tables():
 #     Base.metadata.create_all(bind=engine)
+
+
+
+
+# {
+#   "previewLimit": 50,
+#   "server": "localhost",
+#   "port": 5432,
+#   "driver": "PostgreSQL",
+#   "name": "postgres-docker",
+#   "database": "postgres",
+#   "username": "postgres",
+#   "password": "mysecretpassword"
+# }
