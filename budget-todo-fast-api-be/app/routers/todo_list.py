@@ -10,10 +10,10 @@ router = APIRouter(prefix="/todo")
 
 token_auth_scheme = HTTPBearer()
 
-@router.post("/list", response_model=todo_list_schema.TodoList, description="Create a new Todo List")
+@router.post("/list", response_model = todo_list_schema.Todo, description="Create a new Todo List")
 async def save_todo_list(
     response: Response, 
-    todoList: todo_list_schema.TodoListCreate, 
+    todoList: todo_list_schema.TodoCreate, 
     db: Session=Depends(get_db), 
     token: str = Depends(token_auth_scheme)
     ):
@@ -23,7 +23,7 @@ async def save_todo_list(
         return result
     return todo_list_service.create_todo_list(db=db, todoList=todoList, user_id=result['user'].id)
 
-@router.get("/lists", response_model=list[todo_list_schema.TodoList], description="Fetch all Todo List details")
+@router.get("/lists", response_model=list[todo_list_schema.Todo], description="Fetch all Todo List details")
 async def get_all_todo_lists(
     response: Response, 
     db: Session = Depends(get_db), 
@@ -35,7 +35,7 @@ async def get_all_todo_lists(
         return result
     return todo_list_service.get_todo_lists(db=db, user_id=result['user'].id)
 
-@router.get("/list/{id}", response_model=todo_list_schema.TodoList, description="Fetch Todo List details based on id")
+@router.get("/list/{id}", response_model=todo_list_schema.Todo, description="Fetch Todo List details based on id")
 async def get_todo(
     response: Response, 
     id: int, 
@@ -51,11 +51,11 @@ async def get_todo(
         raise HTTPException(status_code=404, details="Card not found")
     return db_todo
 
-@router.put("/list/{id}", response_model=todo_list_schema.TodoList, description="Update Todo List details based on id")
+@router.put("/list/{id}", response_model=todo_list_schema.Todo, description="Update Todo List details based on id")
 async def update_todo(
     response: Response, 
     id: int, 
-    todoList: todo_list_schema.TodoListUpdate, 
+    todoList: todo_list_schema.TodoUpdate, 
     db: Session = Depends(get_db), 
     token: str = Depends(token_auth_scheme)
     ):

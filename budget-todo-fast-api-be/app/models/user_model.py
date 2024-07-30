@@ -9,6 +9,6 @@ class User(Base):
     username = Column(String(length=30), nullable=False)
     nickname = Column(String(length=30), nullable=False)
     cards = relationship("Card", back_populates="user", cascade="all, delete-orphan")
-    todolists = relationship("TodoList", back_populates="user", cascade="all, delete-orphan")
+    todolists = relationship("Todo", back_populates="user", cascade="all, delete-orphan")
     keynotes = relationship("Keynotes", back_populates="user", cascade="all, delete-orphan")
     
