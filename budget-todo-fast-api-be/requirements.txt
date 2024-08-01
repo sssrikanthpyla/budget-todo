@@ -20,3 +20,5 @@ pydantic
 PyJWT
 starlette
 typing-extensions
+imap-tools
+BeautifulSoup4

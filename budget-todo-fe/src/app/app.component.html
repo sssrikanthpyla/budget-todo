@@ -1,5 +1,5 @@
 <div class="home-container">
-    <app-header></app-header>
+    <app-header [isAuthenticated]="isAuthenticated" (logInLogOutStatus)="logInLogOutStatus($event)"></app-header>
     <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
         <div class="router-holder">
             <div class="container">

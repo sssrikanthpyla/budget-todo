@@ -1,102 +1,48 @@
-<!-- <mat-toolbar class="mattoolbar">
-    <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>Budget and Todo</span>
-    <span class="seperator"></span>
-    <button mat-button>Home</button>
-    <button mat-button [matMenuTriggerFor]="accounts">Accounts</button>
-    <mat-menu #accounts="matMenu">
-        <button mat-menu-item>Saving accounts</button>
-        <button mat-menu-item>Credit cards</button>
-    </mat-menu>
-    <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
-</mat-toolbar> -->
-
-
-
-<header class="p-3 text-bg-dark">
-  <div class="header-container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <button class="px-2 text-white" mat-icon-button>
-            <mat-icon>menu</mat-icon>
-        </button>
-        <ng-container *ngIf="authService.isAuthenticated$ | async; else budget">
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><button class="px-2 text-white" mat-button [routerLink]="'/'">Home</button></li>
-        <li>
-            <button class="px-2 text-white" mat-button [matMenuTriggerFor]="accounts">Accounts</button>
-            <mat-menu #accounts="matMenu">
-                <button mat-menu-item>Saving accounts</button>
-                <button mat-menu-item [routerLink]="'/creditcards'">Credit cards</button>
-            </mat-menu>
-        </li>
-        <li>
-            <button class="px-2 text-white" mat-button>ToDo</button>
-        </li>
-      </ul>
-    </ng-container>
-    <ng-template #budget>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><button class="px-2 text-white" mat-button [routerLink]="'/'">Budget TODO</button></li>
-      </ul>
-    </ng-template>
-
-      <ng-container *ngIf="authService.isAuthenticated$ | async; else loggedOut">
-        <div class="dropdown text-end ms-2" >
-          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{(authService.user$ | async)?.picture}}" alt="userName" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" (click)="authService.logout({ logoutParams: { returnTo: document.location.origin } })">Sign out</a></li>
-          </ul>
-        </div>
-        </ng-container>
-        <ng-template #loggedOut>
-          <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2" (click)="authService.loginWithRedirect()">Login</button>
-          </div>
-        </ng-template>
-    </div>
+<div class="header">
+  <div class="logo">
+    <img src="../../../assets/images/budget-todo.jpg" alt="Flutter Logo">
+    <span>BudgetTodo</span>
   </div>
-</header>
-<!-- 
-<div class="b-example-divider"></div>
 
-<header class="p-3 mb-3 border-bottom">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-      </a>
-
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-        <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
-        <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
-        <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
-      </ul>
-
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
-
-      <div class="dropdown text-end">
+  @if (isAuthenticated) {
+    <nav class="nav-links">
+      <a [routerLink]="">Home</a>
+      <a [routerLink]="" >Budget</a>
+      <a [routerLink]="">Todo</a>
+      <div class="dropdown">
+        <a [routerLink]="" class="dropbtn">Accounts</a>
+        <div class="dropdown-content">
+          <a [routerLink]="">Credit Cards</a>
+          <a [routerLink]="">Saving Accounts</a>
+          <a [routerLink]="">Current Accounts</a>
+        </div>
+      </div>
+      <a [routerLink]="">Planner</a>
+      <a [routerLink]="">Utilities</a>
+    </nav>
+    <div>
+      <div class="dropdown text-end ms-2" >
         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="{{(authService.user$ | async)?.picture}}" alt="userName" width="32" height="32" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small">
-          <li><a class="dropdown-item" href="#">New project...</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
           <li><a class="dropdown-item" href="#">Profile</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
+          <li><a class="dropdown-item" (click)="logInLogOut('logout')">Sign out</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</header> -->
+  }
+  @else if (!isAuthenticated) {
+    <div class="text-end">
+      <button type="button" class="btn btn-outline-light me-2" (click)="logInLogOut('login')">Login</button>
+    </div>
+  }
 
+  <!-- <div class="get-started">
+    <input type="text" placeholder="Search">
+    <button>Get started</button>
+  </div> -->
+    
+</div>

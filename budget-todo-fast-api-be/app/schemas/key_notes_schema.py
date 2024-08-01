@@ -4,7 +4,6 @@ from datetime import date
 class KeynotesBase(BaseModel):
     name: str
     purpose: str
-    purpose: str
     description: str
     star: str
 
