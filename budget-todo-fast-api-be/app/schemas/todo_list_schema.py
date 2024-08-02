@@ -36,4 +36,4 @@ class Todo(TodoBase):
     sub_tasks: List[SubTask] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -20,5 +20,7 @@ pydantic
 PyJWT
 starlette
 typing-extensions
-imap-tools
-BeautifulSoup4
+imap-tools # To access and read the mails
+BeautifulSoup4 # Access the HTML Elements
+pandas
+PyMuPDF # To read PDF files
