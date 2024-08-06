@@ -1,0 +1,15 @@
+:host {
+    background-color:  #d0d0d0;
+
+    .box1 {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #eaeaea;
+
+        .border {
+            // border: 1px dotted green;
+            padding: 20px 20px;
+            background-color: #fff;
+        }
+    }
+}

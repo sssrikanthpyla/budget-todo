@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { provideAuth0 } from '@auth0/auth0-angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { environment } from '../environments/envronment';
+import { environment } from '../environments/environment';
 import { authInterceptor } from './interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {

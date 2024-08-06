@@ -41,6 +41,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-# Temp need to remove later
-environments
+.env
+package-lock.json
