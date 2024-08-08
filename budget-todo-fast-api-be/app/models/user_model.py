@@ -8,7 +8,7 @@ class User(Base):
     email = Column(String(length=50), unique=True, nullable=False)
     username = Column(String(length=30), nullable=False)
     nickname = Column(String(length=30), nullable=False)
-    cards = relationship("Card", back_populates="user", cascade="all, delete-orphan")
+    credit_cards = relationship("CreditCard", back_populates="user", cascade="all, delete-orphan")
     todolists = relationship("Todo", back_populates="user", cascade="all, delete-orphan")
     keynotes = relationship("Keynotes", back_populates="user", cascade="all, delete-orphan")
     
