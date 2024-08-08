@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import Response, APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 from sqlalchemy.orm import Session
@@ -23,7 +24,7 @@ async def save_key_note(
         return result
     return key_notes_service.create_key_note(db=db, keynote=keynote, user_id=result['user'].id)
 
-@router.get("/notes", response_model=list[key_notes_schema.Keynotes], description="Fetch all Keynote details")
+@router.get("/notes", response_model=List[key_notes_schema.Keynotes], description="Fetch all Keynote details")
 async def get_all_keynotes(
     response: Response, 
     db: Session = Depends(get_db), 

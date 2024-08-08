@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import Response, APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 from sqlalchemy.orm import Session
@@ -23,7 +24,7 @@ async def save_cards(
         return result
     return creditcard_service.create_card(db=db, card=card, user_id=result['user'].id)
 
-@router.get("/cards", response_model=list[CreditCard], description="Fetch all credit card details")
+@router.get("/cards", response_model=List[CreditCard], description="Fetch all credit card details")
 async def get_all_cards(
     response: Response, 
     db: Session = Depends(get_db), 

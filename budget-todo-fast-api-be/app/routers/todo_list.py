@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import Response, APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPBearer
 from sqlalchemy.orm import Session
@@ -23,7 +24,7 @@ async def save_todo_list(
         return result
     return todo_list_service.create_todo_list(db=db, todoList=todoList, user_id=result['user'].id)
 
-@router.get("/lists", response_model=list[todo_list_schema.Todo], description="Fetch all Todo List details")
+@router.get("/lists", response_model=List[todo_list_schema.Todo], description="Fetch all Todo List details")
 async def get_all_todo_lists(
     response: Response, 
     db: Session = Depends(get_db), 
